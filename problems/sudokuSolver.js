@@ -55,7 +55,7 @@ class Solution {
             if(board[i][col] != 0 && board[i][col] == c) return false;
 
             // check for rows
-            if(board[row][i] != '.' && board[row][i] == c) return false;
+            if(board[row][i] != 0 && board[row][i] == c) return false;
 
             // check for each grid 
             // each grid is 3X3,
@@ -82,7 +82,7 @@ class Solution {
           //  for i = 4, row = 3*(1/3)+4/3 == 3*(0) + 1 = 1
           //             col = 3*(4/3)+4%3 == 3*(1) + 1 = 4 
 
-            if(board[3*(row/3)+i/3][3*(col/3)+i%3] != '.' &&
+            if(board[3*(row/3)+i/3][3*(col/3)+i%3] != 0 &&
                board[3*(row/3)+i/3][3*(col/3)+i%3] == c) return false;
         }
         return true;
