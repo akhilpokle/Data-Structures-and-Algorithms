@@ -15,19 +15,23 @@ var encode = function(string){
 
 var decode = function(string){
   let res = "";
-  let chars = string.split("");
-  for(let i=0;i<chars.length;i+=2){
-    let char = chars[i];
-    let count = chars[i+1];
-    while(count > 0){
-      res += char;
+  for(let i=0;i<string.length;){
+    let char = string[i];
+    let count = 0;
+    i++;
+    while(i<string.length && parseInt(string[i])>=1 && parseInt(string[i])<=9){
+      count = parseInt(count * 10) + parseInt(string[i]);
+      i++;
+    }
+    while(count>0){
+      res+= char;
       count--;
     }
   }
   return res;
-}
+} 
 
-let compress = encode("aaabbbcccccd");
+let compress = encode("aaabbbccccccccccccd");
 console.log(compress);
 let res = decode(compress);
 console.log(res);
