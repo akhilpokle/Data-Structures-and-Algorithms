@@ -1,0 +1,34 @@
+const SPLITTER = 'X';
+const NULL = 'NN';
+var serialize = function(root) {
+    let serial = "";
+    
+    function inorder(root){
+        if(root == null){ 
+            serial += NULL + SPLITTER;
+            return;
+        }
+        serial += root.val + SPLITTER;
+        inorder(root.left);
+        inorder(root.right);   
+    }
+    
+    inorder(root);
+    return serial;
+};
+
+
+var deserialize = function(data) {
+    data = data.split('X');
+    let idx = 0;
+    function buildTree(data){
+        if(idx >= data.length) return null;
+        if(data[idx] == NULL){idx++; return null;}
+        let node = new TreeNode(parseInt(data[idx++]));
+        node.left = buildTree(data);
+        node.right = buildTree(data);
+        return node;
+    }
+    
+    return buildTree(data);
+};
