@@ -21,7 +21,7 @@ for(let i=0;i<=N-M;i+=skip){
   for(let j = M-1;j>=0;j--){
 
     if(pattern[j] != string[i+j]){
-      skip = Math.max(1,j-map[string[i+j]]);
+      skip = Math.max(1,j-map[string[i+j].charCodeAt(0)])
       break;
     }
   }
