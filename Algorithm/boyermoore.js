@@ -13,7 +13,7 @@ for(let c = 0;c<256;c++){
 }
 
 for(let j=0;j<M;j++){
-  map[pattern[j]] = j;
+  map[pattern[j].charCodeAt(0)] = j;
 }
 
 for(let i=0;i<=N-M;i+=skip){
